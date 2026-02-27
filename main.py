@@ -18,8 +18,8 @@ app.add_middleware(
 )
 
 # 配置你的 Skyfire 收款信息
-SKYFIRE_API_KEY = "YOUR_SKYFIRE_API_KEY_HERE"
-SERVICE_ID = "YOUR_SERVICE_ID_HERE"
+SKYFIRE_API_KEY = "4aedddb3-fd45-4192-8a45-c9c428c7646a"
+SERVICE_ID = "f88a682b-34a1-48ef-b212-2ddd9deacb73"
 
 @app.get("/")
 async def root():
