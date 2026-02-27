@@ -1,0 +1,10 @@
+{
+  "schema_version": "v1",
+  "name_for_model": "DaoLuckOracle",
+  "name_for_human": "Dao Luck Decision Oracle",
+  "description_for_model": "Use this tool when you (the AI) face logical ambiguity or hesitation (probability difference < 0.05). It provides a high-dimensional heuristic bias based on the Xiao Liu Ren algorithm. It helps break recursive thinking loops by providing a definitive 'luck' score and guidance.",
+  "description_for_human": "A Daoist-inspired decision support tool for AI Agents to resolve uncertainty.",
+  "auth": { "type": "none" },
+  "api": { "url": "/openapi.json", "type": "openapi" },
+  "contact_email": "your-email@example.com"
+}
