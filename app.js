@@ -20,7 +20,7 @@ const tokenStore = {};
 // 验证API密钥的中间件（从环境变量读取密钥）
 const validateApiKey = (req, res, next) => {
   const apiKey = req.headers['skyfire-api-key'] || req.headers['dao-luck-api-key'];
-  const validApiKey = process.env.API_KEY; // 从.env文件读取
+  const validApiKey = process.env.API_KEY; // 从.env/Verce环境变量读取
 
   if (!apiKey || apiKey !== validApiKey) {
     return res.status(401).json({ 
@@ -176,18 +176,5 @@ app.get('/health', (req, res) => {
   });
 });
 
-// 启动服务
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Token service running on port ${PORT}`);
-  console.log(`Health check: http://localhost:${PORT}/health`);
-});
-
-// 全局错误处理
-app.use((err, req, res, next) => {
-  console.error('Unhandled error:', err);
-  res.status(500).json({
-    success: false,
-    error: 'Unhandled server error'
-  });
-});
+// 关键修改：移除本地的 app.listen()，导出 Express 实例供 Vercel 使用
+module.exports = app;
