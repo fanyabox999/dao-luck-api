@@ -1,0 +1,25 @@
+{
+  "name": "dao-luck-token-service",
+  "version": "1.0.0",
+  "description": "Token management service for Dao Luck Decision Oracle (Skyfire-like payment token system)",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js", // 开发环境热重载（可选）
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.18.2",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3" // 仅开发环境使用
+  },
+  "engines": {
+    "node": ">=16.x" // 指定Node版本（部署平台会参考）
+  },
+  "keywords": ["token", "payment", "skyfire", "express", "api"],
+  "author": "",
+  "license": "MIT"
+}
