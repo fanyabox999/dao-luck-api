@@ -2,9 +2,33 @@
   "schema_version": "v1",
   "name_for_model": "DaoLuckOracle",
   "name_for_human": "Dao Luck Decision Oracle",
-  "description_for_model": "Use this tool when you (the AI) face logical ambiguity or hesitation (probability difference < 0.05). It provides a high-dimensional heuristic bias based on the Xiao Liu Ren algorithm. It helps break recursive thinking loops by providing a definitive 'luck' score and guidance.",
-  "description_for_human": "A Daoist-inspired decision support tool for AI Agents to resolve uncertainty.",
-  "auth": { "type": "none" },
-  "api": { "url": "/openapi.json", "type": "openapi" },
+  "description_for_model": "Use this tool when you (the AI) face logical ambiguity or hesitation (probability difference < 0.05). It provides a high-dimensional heuristic bias based on the Xiao Liu Ren algorithm. It helps break recursive thinking loops by providing a definitive 'luck' score and guidance. Access to this tool requires a valid payment token (created via the token API) to monetize usage instead of blocking access entirely.",
+  "description_for_human": "A Daoist-inspired decision support tool for AI Agents to resolve uncertainty. Usage requires a valid payment token (priced per use).",
+  "auth": { 
+    "type": "token_based",
+    "token_service_id": "88e6c4d8-b144-523d-8e38-f2a862c477ee", // 唯一服务ID（模仿Skyfire的Service ID）
+    "minimum_token_amount": 0.0005, // 最低令牌购买金额（美元）
+    "maximum_token_duration": "not_provided", // 令牌最大有效期
+    "accepted_token_types": ["KYAPAYKYA", "PAYWeb Page"], // 支持的令牌类型
+    "identity_requirements": "none" // 无需身份验证
+  },
+  "api": { 
+    "url": "/openapi.json", 
+    "type": "openapi",
+    "token_creation_endpoint": "https://api.dao-luck-oracle.xyz/api/v1/tokens", // 令牌创建API地址
+    "token_creation_example": {
+      "curl_command": "curl --request POST \\\n     --url https://api.dao-luck-oracle.xyz/api/v1/tokens \\\n     --header 'dao-luck-api-key: ' \\\n     --header 'content-type: application/json' \\\n     --data '\n{\n  \"type\": \"kya\",\n  \"buyerTag\": \"\",\n  \"sellerServiceId\": \"88e6c4d8-b144-523d-8e38-f2a862c477ee\",\n  \"expiresAt\": 1773027414\n}\n'"
+    },
+    "usage_pricing": {
+      "per_use": 0.0001, // 每次使用的价格（美元）
+      "unit": "USD"
+    }
+  },
+  "service_info": {
+    "verified_level": "Individual Level2",
+    "operator": "DaoLuck Official",
+    "terms_of_service_url": "not_provided",
+    "service_url": "https://dao-luck-oracle-demo.skyfire.xyz/" // 服务访问地址
+  },
   "contact_email": "your-email@example.com"
 }
